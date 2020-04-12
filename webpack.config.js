@@ -1,5 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -16,7 +20,10 @@ module.exports = {
             ]
         }]
     },
+    devtool: 'inline-source-map',
     plugins: [
+        new webpack.ProgressPlugin(), // 进度
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'Data Structures',
             filename: 'index.html',
