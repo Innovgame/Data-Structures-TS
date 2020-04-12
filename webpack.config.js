@@ -8,7 +8,7 @@ const {
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -27,7 +27,8 @@ module.exports = {
         port: 8080,
         disableHostCheck: true,
         host: "0.0.0.0",
-        open: true
+        open: true,
+        hot: true
     },
     plugins: [
         new webpack.ProgressPlugin(), // 进度
@@ -37,6 +38,8 @@ module.exports = {
             filename: 'index.html',
             template: 'public/index.html',
             favicon: 'public/favicon.ico'
-        })
+        }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
