@@ -21,6 +21,14 @@ module.exports = {
         }]
     },
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 8080,
+        disableHostCheck: true,
+        host: "0.0.0.0",
+        open: true
+    },
     plugins: [
         new webpack.ProgressPlugin(), // 进度
         new CleanWebpackPlugin(),
