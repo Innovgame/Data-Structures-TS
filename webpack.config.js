@@ -4,21 +4,33 @@ const webpack = require('webpack');
 const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin');
+const mode = 'development'
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.ts',
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+    mode: mode,
     module: {
         rules: [{
-            test: /\.css$/,
-            use: [
-                'style-loader',
-                'css-loader'
-            ]
-        }]
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.(js|ts)$/,
+                use: [
+                    'ts-loader'
+                ]
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['.js', '.ts']
     },
     devtool: 'inline-source-map',
     devServer: {
