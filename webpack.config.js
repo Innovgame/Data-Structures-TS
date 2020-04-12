@@ -30,7 +30,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.ts']
+        extensions: ['.js', '.ts'],
+        alias: {
+            '@': path.join(__dirname, 'src')
+        }
     },
     devtool: 'inline-source-map',
     devServer: {
