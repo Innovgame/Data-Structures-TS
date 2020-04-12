@@ -21,3 +21,19 @@ $ npm install --save-dev webpack-cli
 ```
 
 ### install typescript and ts-loader
+
+1.typescript
+
+```sh
+# 默认安装最新版本
+$ npm install --save-dev typescript
+# 安装指定版本
+$ npm install --save-dev typescript@<version>
+```
+
+2.ts-loader
+
+```sh
+# webpack 中ts的loader
+$ npm install --save-dev ts-loader
+```
