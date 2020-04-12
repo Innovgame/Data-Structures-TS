@@ -2,9 +2,11 @@
   "name": "data-structure-2020",
   "version": "1.0.0",
   "description": "data structures",
+  "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "npx webpack --config webpack.config.js"
   },
   "keywords": [
     "data-structure"
