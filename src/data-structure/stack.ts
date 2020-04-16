@@ -1,10 +1,9 @@
-interface Items<T> {
-    [index: number]: T;
-}
+import { ItemArray } from "./model";
+
 
 export class Stack<T> implements IStack<T> {
     protected count: number;
-    protected items: Items<T>;
+    protected items: ItemArray<T>;
 
     constructor() {
         this.count = 0;
