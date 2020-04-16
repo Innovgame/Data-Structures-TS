@@ -18,7 +18,7 @@ export class Queue<T> implements IQueue<T> {
         this.items[this.count++] = element;
     }
     dequeue(): T {
-        if (this.isEmpty) {
+        if (this.isEmpty()) {
             return null;
         }
         const result = this.items[this.lowestCount];
@@ -27,7 +27,7 @@ export class Queue<T> implements IQueue<T> {
         return result;
     }
     peek(): T {
-        if (this.isEmpty) {
+        if (this.isEmpty()) {
             return null;
         }
         return this.items[this.lowestCount];
@@ -38,6 +38,17 @@ export class Queue<T> implements IQueue<T> {
     size(): number {
         return this.count - this.lowestCount;
     }
+
+    toString(): string {
+        if (this.isEmpty()) {
+            return "";
+        }
+        let returnStr = `${this.items[this.lowestCount]}`;
+        for (let i = this.lowestCount + 1; i < this.count; i++) {
+            returnStr = `${returnStr},${this.items[i]}`;
+        }
+        return returnStr;
+    }
 }
 
 export interface IQueue<T> {
@@ -47,4 +58,5 @@ export interface IQueue<T> {
     isEmpty(): boolean;
     size(): number;
     clear(): void;
+    toString(): string;
 }
