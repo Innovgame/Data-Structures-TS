@@ -51,6 +51,45 @@ export class Queue<T> implements IQueue<T> {
     }
 }
 
+export class Deque<T> extends Queue<T> {
+
+    constructor() {
+        super();
+    }
+
+    addFront(ele: T) {
+        this.items[--this.lowestCount] = ele;
+    }
+
+    addBack(ele: T) {
+        this.enqueue(ele);
+    }
+
+    removeFront(): T {
+        return this.dequeue();
+    }
+
+    removeBack(): T {
+        if (this.isEmpty()) {
+            return null;
+        }
+        const val = this.items[--this.count];
+        delete this.items[this.count];
+        return val;
+    }
+
+    peekFront(): T {
+        return this.peek();
+    }
+
+    peekBack(): T {
+        if (this.isEmpty()) {
+            return null;
+        }
+        return this.items[this.count - 1];
+    }
+}
+
 export interface IQueue<T> {
     enqueue(element: T): void;
     dequeue(): T;
